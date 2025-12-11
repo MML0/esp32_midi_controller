@@ -36,7 +36,7 @@ void loop() {
 
 
   // ====== BUILD PACKET ======
-  String packet = "[";
+  String packet = "";
 
   // Push buttons (normal momentary)
   for(int i=0; i<numPush; i++){
@@ -56,7 +56,7 @@ void loop() {
     if(i < numAnalog-1) packet += ",";
   }
 
-  packet += "]";
+  packet += "";
 
   Serial.println(packet);
 
