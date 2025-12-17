@@ -3,10 +3,9 @@
 #include <Adafruit_ST7735.h>
 #include "photo.h"
 
-#define TFT_CS   5
-#define TFT_DC   2
-#define TFT_RST  4
-
+#define TFT_CS 5
+#define TFT_DC 2
+#define TFT_RST 4
 Adafruit_ST7735 tft(TFT_CS, TFT_DC, TFT_RST);
 
 #define TFT_W 128
@@ -15,13 +14,14 @@ Adafruit_ST7735 tft(TFT_CS, TFT_DC, TFT_RST);
 void setup() {
   Serial.begin(115200);
   tft.initR(INITR_BLACKTAB);
-  tft.setRotation(0);
+  // tft.setRotation(0);
   tft.fillScreen(ST77XX_BLACK);
-
-  // Draw the image from photo.h
-  tft.drawRGBBitmap(0, 0, photo, TFT_W, TFT_H);
 }
 
 void loop() {
-  // nothing
+  for (int i = 0; i < numFrames; i++) {
+    tft.drawRGBBitmap(0, 0, frames[i], TFT_W, TFT_H);
+    delay(100); // ~30 FPS
+  }
+  delay(2000); // ~30 FPS
 }
