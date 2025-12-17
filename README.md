@@ -1,3 +1,6 @@
+Midi BLE Library https://github.com/max22-/ESP32-BLE-MIDI
+NimBLE-Arduino version  1.4.3 
+
 ## ESP32 MIDI Controller – Input Test Code
 
 This code is for an ESP32 MIDI controller.  
