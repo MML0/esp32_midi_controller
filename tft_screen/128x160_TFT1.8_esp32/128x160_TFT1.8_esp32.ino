@@ -3,34 +3,25 @@
 #include <Adafruit_ST7735.h>
 #include "photo.h"
 
-// ===== TFT PINS =====
 #define TFT_CS   5
 #define TFT_DC   2
 #define TFT_RST  4
 
 Adafruit_ST7735 tft(TFT_CS, TFT_DC, TFT_RST);
 
+#define TFT_W 128
+#define TFT_H 160
+
 void setup() {
-  SPI.begin(18, -1, 23);   // SCK, MISO(not used), MOSI
+  Serial.begin(115200);
+  tft.initR(INITR_BLACKTAB);
+  tft.setRotation(0);
+  tft.fillScreen(ST77XX_BLACK);
 
-  tft.initR(INITR_BLACKTAB);   // change if needed
-  tft.setRotation(1);
-
-  drawPhoto();
+  // Draw the image from photo.h
+  tft.drawRGBBitmap(0, 0, photo, TFT_W, TFT_H);
 }
 
 void loop() {
-}
-
-// ===== DRAW IMAGE FROM FLASH (PROGMEM) =====
-void drawPhoto() {
-  tft.startWrite();
-  tft.setAddrWindow(0, 0, 128, 160);
-
-  for (int i = 0; i < 20480; i++) {
-    uint16_t color = pgm_read_word(&photo[i]);
-    tft.pushColor(color);
-  }
-
-  tft.endWrite();
+  // nothing
 }
