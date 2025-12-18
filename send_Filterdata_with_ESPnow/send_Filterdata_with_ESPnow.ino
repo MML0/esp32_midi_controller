@@ -2,8 +2,8 @@
 #include <WiFi.h>
 
 // ======= Pin Definitions =======
-const int pushPins[]   = {4, 16, 17, 5};          
-const int togPins[]    = {18, 19, 15, 21};       
+const int pushPins[]   = {18, 19, 15, 21};          
+const int togPins[]    = { 4, 16, 17, 5};       
 const int analogPins[] = {32, 33, 34, 35, 36, 39};
 
 const int numPush   = sizeof(pushPins) / sizeof(pushPins[0]);
@@ -25,12 +25,12 @@ void OnSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
 }
 
 // ======= خواندن آنالوگ با فیلتر و مقیاس =======
-int readAnalogSmooth(int pin, int index, int threshold = 2) {
+int readAnalogSmooth(int pin, int index, int threshold = 5) {
   int raw = analogRead(pin);
-  int scaled = map(raw, 0, 4095, 0, 128);  // تبدیل به 0–100
+  int scaled = map(raw, 0, 4095, 0, 127);  // تبدیل به 0–100
 
   // --- استثناء: مقادیر خیلی پایین یا خیلی بالا همیشه ثبت شوند ---
-  if (scaled <= 1 || scaled >= 128) {
+  if (scaled <= 1 || scaled >= 256) {
     prevAnalog[index] = scaled;
     return scaled;
   }

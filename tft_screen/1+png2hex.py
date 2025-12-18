@@ -4,7 +4,8 @@ import struct
 # ===== SETTINGS =====
 input_folder = "tft_screen/"                 # folder with PNGs
 output_file = "tft_screen/128x160_TFT1.8_esp32/photo.h"
-num_frames = 16                             # total number of frames
+output_file = "tft_screen/photo.h"
+num_frames = 20                             # total number of frames
 array_prefix = "photo"                        # array names: photo1, photo2, ...
 width, height = 128, 160                      # TFT size
 

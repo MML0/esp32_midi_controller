@@ -19,9 +19,41 @@ void setup() {
 }
 
 void loop() {
-  for (int i = 0; i < numFrames; i++) {
+  // for (int i = 0; i < numFrames; i++) {
+  //   tft.drawRGBBitmap(0, 0, frames[i], TFT_W, TFT_H);
+  //   delay(100); // ~30 FPS
+  // }
+  // delay(2000); // ~30 FPS
+    for (int i = 0; i < 16; i++) {
     tft.drawRGBBitmap(0, 0, frames[i], TFT_W, TFT_H);
     delay(100); // ~30 FPS
   }
+  delay(500); // ~30 FPS
+
+  tft.drawRGBBitmap(0, 0, frames[16], TFT_W, TFT_H);
   delay(2000); // ~30 FPS
+
+  tft.drawRGBBitmap(0, 0, frames[17], TFT_W, TFT_H);
+  delay(700); // ~30 FPS
+  tft.drawRGBBitmap(0, 0, frames[18], TFT_W, TFT_H);
+  delay(700); // ~30 FPS
+  tft.drawRGBBitmap(0, 0, frames[19], TFT_W, TFT_H);
+  delay(700); // ~30 FPS
+
+  tft.drawRGBBitmap(0, 0, frames[16], TFT_W, TFT_H);
+  delay(1000); // ~30 FPS
+ 
+  tft.drawRGBBitmap(0, 0, frames[17], TFT_W, TFT_H);
+  delay(700); // ~30 FPS
+  tft.drawRGBBitmap(0, 0, frames[18], TFT_W, TFT_H);
+  delay(700); // ~30 FPS
+  tft.drawRGBBitmap(0, 0, frames[19], TFT_W, TFT_H);
+  delay(700); // ~30 FPS
+
+  // tft.drawRGBBitmap(0, 0, frames[17], TFT_W, TFT_H);
+  // delay(500); // ~30 FPS
+  // tft.drawRGBBitmap(0, 0, frames[18], TFT_W, TFT_H);
+  // delay(500); // ~30 FPS
+  // tft.drawRGBBitmap(0, 0, frames[19], TFT_W, TFT_H);
+  // delay(700); // ~30 FPS
 }
